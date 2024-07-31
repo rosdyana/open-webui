@@ -979,11 +979,7 @@ ENABLE_RAG_WEB_LOADER_SSL_VERIFICATION = PersistentConfig(
     os.environ.get("ENABLE_RAG_WEB_LOADER_SSL_VERIFICATION", "True").lower() == "true",
 )
 
-RAG_EMBEDDING_ENGINE = PersistentConfig(
-    "RAG_EMBEDDING_ENGINE",
-    "rag.embedding_engine",
-    os.environ.get("RAG_EMBEDDING_ENGINE", ""),
-)
+RAG_EMBEDDING_ENGINE = "ollama"
 
 PDF_EXTRACT_IMAGES = PersistentConfig(
     "PDF_EXTRACT_IMAGES",
@@ -1306,11 +1302,7 @@ AUDIO_STT_OPENAI_API_KEY = PersistentConfig(
     os.getenv("AUDIO_STT_OPENAI_API_KEY", OPENAI_API_KEY),
 )
 
-AUDIO_STT_ENGINE = PersistentConfig(
-    "AUDIO_STT_ENGINE",
-    "audio.stt.engine",
-    os.getenv("AUDIO_STT_ENGINE", ""),
-)
+AUDIO_STT_ENGINE = "openai"
 
 AUDIO_STT_MODEL = PersistentConfig(
     "AUDIO_STT_MODEL",
