@@ -148,17 +148,17 @@ RUN curl -L "https://golang.org/dl/go1.21.3.linux-amd64.tar.gz" -o go.tar.gz && 
 # Set PATH environment variable to include the Go binary path
 ENV PATH=$PATH:/usr/local/go/bin
 
-# Set environment variables for Go
-ENV GO111MODULE=on
+# Set GOARCH environment variable for ARM architecture
+ENV GOARCH=arm64
 
 # Install Subfinder with a specific version
-RUN GOARCH=$(go env GOARCH) go install -v github.com/projectdiscovery/subfinder/v2/cmd/subfinder@latest
+RUN GO111MODULE=on go install -v github.com/projectdiscovery/subfinder/v2/cmd/subfinder@latest
 
 # Install Nuclei with a specific version
-RUN GOARCH=$(go env GOARCH) go install -v github.com/projectdiscovery/nuclei/v2/cmd/nuclei@latest
+RUN GO111MODULE=on go install -v github.com/projectdiscovery/nuclei/v2/cmd/nuclei@latest
 
 # Install ffuf with a specific version
-RUN GOARCH=$(go env GOARCH) go install -v github.com/ffuf/ffuf@latest
+RUN GO111MODULE=on go install -v github.com/ffuf/ffuf@latest
 
 # Install dirhunt
 RUN pip3 install dirhunt
