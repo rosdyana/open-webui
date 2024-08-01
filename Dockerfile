@@ -137,7 +137,7 @@ RUN pip3 install uv && \
 
 # install nmap, Go, Subfinder, Nuclei, Hydra, sqlmap, dirhunt, ffuf, wpscan
 RUN apt-get update && \
-    apt-get install -y --no-install-recommends nmap git hydra sqlmap ruby ruby-dev build-essential libcurl4-openssl-dev python3-pip && \
+    apt-get install -y --no-install-recommends nmap git hydra sqlmap ruby ruby-dev build-essential libcurl4-openssl-dev && \
     rm -rf /var/lib/apt/lists/*
 
 # Download and install Go
@@ -162,6 +162,9 @@ RUN GO111MODULE=on go install -v github.com/ffuf/ffuf@latest
 
 # Install dirhunt
 RUN pip3 install dirhunt
+
+# Install latest click
+RUN pip3 install -U click
 
 # Install WPScan
 RUN gem install wpscan
