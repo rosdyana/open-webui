@@ -141,7 +141,7 @@ RUN apt-get update && \
     rm -rf /var/lib/apt/lists/*
 
 # Download and install Go
-RUN curl -L "https://golang.org/dl/go1.18.3.linux-amd64.tar.gz" -o go.tar.gz && \
+RUN curl -L "https://golang.org/dl/go1.21.3.linux-amd64.tar.gz" -o go.tar.gz && \
     tar -C /usr/local -xzf go.tar.gz && \
     rm go.tar.gz
 
