@@ -137,26 +137,34 @@ RUN pip3 install uv && \
 
 # install nmap, Go, Subfinder, Nuclei, Hydra, sqlmap, dirhunt, ffuf, wpscan
 RUN apt-get update && \
-    apt-get install -y --no-install-recommends nmap git hydra sqlmap ruby ruby-dev build-essential libcurl4-openssl-dev && \
-    rm -rf /var/lib/apt/lists/* && \
-    # Download and install Go
-    curl -L "https://golang.org/dl/go1.18.3.linux-amd64.tar.gz" -o go.tar.gz && \
+    apt-get install -y --no-install-recommends nmap git hydra sqlmap ruby ruby-dev build-essential libcurl4-openssl-dev python3-pip && \
+    rm -rf /var/lib/apt/lists/*
+
+# Download and install Go
+RUN curl -L "https://golang.org/dl/go1.18.3.linux-amd64.tar.gz" -o go.tar.gz && \
     tar -C /usr/local -xzf go.tar.gz && \
-    rm go.tar.gz && \
-    # Set PATH environment variable to include the Go binary path
-    export PATH=$PATH:/usr/local/go/bin && \
-    # Install Subfinder
-    GO111MODULE=on go install -v github.com/projectdiscovery/subfinder/v2/cmd/subfinder@latest && \
-    # Install Nuclei
-    GO111MODULE=on go install -v github.com/projectdiscovery/nuclei/v2/cmd/nuclei@latest && \
-    # Install ffuf
-    go get -u github.com/ffuf/ffuf && \
-    # Install dirhunt
-    pip3 install dirhunt && \
-    # Install WPScan
-    gem install wpscan && \
-    # Clean up
-    apt-get clean && apt-get autoremove
+    rm go.tar.gz
+
+# Set PATH environment variable to include the Go binary path
+ENV PATH=$PATH:/usr/local/go/bin
+
+# Install Subfinder
+RUN GO111MODULE=on go install -v github.com/projectdiscovery/subfinder/v2/cmd/subfinder@latest
+
+# Install Nuclei
+RUN GO111MODULE=on go install -v github.com/projectdiscovery/nuclei/v2/cmd/nuclei@latest
+
+# Install ffuf
+RUN GO111MODULE=on go install -v github.com/ffuf/ffuf@latest
+
+# Install dirhunt
+RUN pip3 install dirhunt
+
+# Install WPScan
+RUN gem install wpscan
+
+# Clean up
+RUN apt-get clean && apt-get autoremove
 
 # Set PATH environment variable globally
 ENV PATH=$PATH:/usr/local/go/bin:/root/go/bin
