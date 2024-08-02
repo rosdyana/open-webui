@@ -34,7 +34,7 @@ class NmapWrapper:
 
 class Tools:
     def __init__(self):
-        self.citations = True
+        self.citation = True
         pass
 
     async def scan_host_using_nmap(self, target: str) -> str:
