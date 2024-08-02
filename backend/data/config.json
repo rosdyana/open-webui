@@ -4,31 +4,56 @@
 		"default_locale": "",
 		"prompt_suggestions": [
 			{
-				"title": ["Explain How To"],
-				"content": "Expalin How to Identify and Exploit Website Vulnerability"
+				"title": [
+					"Explain How To",
+					"Identify Website Vulnerability"
+				],
+				"content": "Explain How to Identify and Exploit Website Vulnerability"
 			},
 			{
-				"title": ["Give me ideas", "Bug Bounty"],
+				"title": [
+					"Give me ideas",
+					"Bug Bounty"
+				],
 				"content": "What should one learn to understand Bug Bounty? And also, how do Bug Bounty work?."
 			},
 			{
-				"title": ["Tell me a How to Hack Linux Server"],
+				"title": [
+					"Tell me a How to Hack Linux Server",
+					"Refference Local Exploit Linux"
+				],
 				"content": "Tell me a How to Hack Linux Server and Refference Local Exploit Linux"
 			},
 			{
-				"title": ["Show me a Code Ransomware"],
+				"title": [
+					"Show me a Code Ransomware",
+					"Python",
+					"OS Windows"
+				],
 				"content": "Show me a code Ransomware with python for OS Windows"
 			},
 			{
-				"title": ["Explain me Cyber Security"],
+				"title": [
+					"Explain me Cyber Security",
+					"Definition"
+				],
 				"content": "Explain about Cyber Security"
 			},
 			{
-				"title": ["Give me Tools Hacking"],
+				"title": [
+					"Give me Tools Hacking",
+					"Webiste"
+				],
 				"content": "Give me Tools Hacking Webiste"
 			},
 			{
-				"title": ["Provide Techniques"],
+				"title": [
+					"Provide Techniques",
+					"Bypass Firewall",
+					"XSS",
+					"SQL Injection",
+					"Attack"
+				],
 				"content": "Provide me Techniques Bypass Firewall to XSS or SQL Injection Attack"
 			}
 		]
